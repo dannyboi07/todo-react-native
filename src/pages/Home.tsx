@@ -1,29 +1,36 @@
 import React from "react";
-import { View, Image, Pressable, Text } from "react-native";
-import { styled, useColorScheme } from "nativewind";
-const HeroImgDarkAssetPath = "../assets/bg-mobile-dark.jpg";
-const HeroImgLightAssetPath = "../assets/bg-mobile-light.jpg";
+import { Alert } from "react-native";
+import BaseLayout from "../layouts/BaseLayout";
+import BaseView from "../components/View/BaseView";
+import BaseText from "../components/Text/BaseText";
+import BaseButton from "../components/Button/BaseButton";
+import { supabase } from "../supabase";
 
-const StyledView = styled(View);
-const StyledImage = styled(Image);
+function HomeScreen({ navigation }) {
+    async function handleSignOut() {
+        const { error } = await supabase.auth.signOut();
 
-function Home() {
-    const { colorScheme } = useColorScheme();
+        if (error) {
+            Alert.alert("Failed to sign out", error.message);
+        }
+    }
 
     return (
-        <StyledView
-            className={`min-h-screen relative dark:bg-v-dark-blue light:v-dark-grayish-blue-2`}
-        >
-            <StyledImage
-                source={
-                    colorScheme === "dark"
-                        ? require(HeroImgDarkAssetPath)
-                        : require(HeroImgLightAssetPath)
-                }
-                className="w-full h-[30%] absolute"
-            />
-        </StyledView>
+        <BaseLayout>
+            <BaseView className="relative h-full">
+                <BaseView>
+                    <BaseText>Home page</BaseText>
+                </BaseView>
+
+                <BaseButton
+                    className="absolute top-[82.5%] left-[42.5%]"
+                    onPress={handleSignOut}
+                >
+                    <BaseText>Sign out</BaseText>
+                </BaseButton>
+            </BaseView>
+        </BaseLayout>
     );
 }
 
-export default Home;
+export default HomeScreen;
