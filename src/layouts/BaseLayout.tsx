@@ -73,7 +73,7 @@ function BaseLayout({ children }: Props) {
                         />
                     </BaseButton>
                 </BaseView>
-                <BaseView className="mt-8">{children}</BaseView>
+                <BaseView className="mt-8 px-1">{children}</BaseView>
             </BaseView>
         </BaseView>
     );

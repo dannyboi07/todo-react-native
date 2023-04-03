@@ -9,11 +9,15 @@ import { styled } from "nativewind";
 
 const StyledTextInput = styled(TextInput);
 
-interface Props extends TextInputProps {
+export interface BaseTextInputProps extends TextInputProps {
     className?: string;
 }
 
-function BaseTextInput({ className = "", children, ...props }: Props) {
+function BaseTextInput({
+    className = "",
+    children,
+    ...props
+}: BaseTextInputProps) {
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "android" ? "height" : "padding"}

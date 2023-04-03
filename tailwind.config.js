@@ -8,6 +8,9 @@ module.exports = {
         colors: {
             white: "rgb(255, 255, 255)",
             black: "rgb(0, 0, 0)",
+            "bright-blue": "hsl(220, 98%, 61%)",
+            "checked-blue":
+                "linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%))",
             // light theme colours
             "v-light-gray": "hsl(0, 0%, 98%)",
             "v-light-grayish-blue": "hsl(236, 33%, 92%)",

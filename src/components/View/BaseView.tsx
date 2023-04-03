@@ -4,11 +4,11 @@ import { styled } from "nativewind";
 
 const StyledView = styled(View);
 
-interface Props extends ViewProps {
+export interface BaseViewProps extends ViewProps {
     className?: string;
 }
 
-function BaseView({ className = "", children, ...props }: Props) {
+function BaseView({ className = "", children, ...props }: BaseViewProps) {
     return (
         <StyledView
             className={["transition-all", className].join(" ")}

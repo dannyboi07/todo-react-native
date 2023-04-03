@@ -90,12 +90,15 @@ function AuthScreen({ navigation }) {
                 <BaseView className="flex gap-y-3">
                     <BaseTextInput
                         className="text-base px-3 py-2 bg-v-light-gray dark:bg-v-dark-desat-blue"
+                        textContentType="emailAddress"
+                        autoCapitalize="none"
                         placeholder="Email"
                         value={authInput.email}
                         onChangeText={handleInputChange(AuthFieldEnum.EMAIL)}
                     />
                     <BaseTextInput
                         className="text-base px-3 py-2 bg-v-light-gray dark:bg-v-dark-desat-blue"
+                        textContentType="password"
                         placeholder="Password"
                         value={authInput.password}
                         onChangeText={handleInputChange(AuthFieldEnum.PASSWORD)}
